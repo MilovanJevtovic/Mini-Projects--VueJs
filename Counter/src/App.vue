@@ -1,11 +1,7 @@
 <script setup>
 import {ref} from "vue"
 
-let colore
-
 const counter = ref(0);
-
-
 
 
 </script>
@@ -24,7 +20,7 @@ const counter = ref(0);
     v-else
     >{{counter}}</h2>
     <div class="buttons">
-      <button @click="counter--">DECREASE</button>
+      <button v-bind="counter" @click="counter--">DECREASE</button>
       <button @click="counter = 0">RESET</button>
       <button @click="counter++">INCREASE</button>
     </div>
