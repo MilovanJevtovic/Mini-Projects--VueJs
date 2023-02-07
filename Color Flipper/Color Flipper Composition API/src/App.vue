@@ -1,47 +1,45 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+  import {ref} from "vue"
+
+  let color = ref("");
+  const list = ["red", "blue", "green", "yellow", "brown",
+  "orange", "black", "gray", "gold", "purple"];
+
+  function colore(){
+    let b = Math.floor(Math.random() * 10)
+    color.value = list[b];
+  }
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <main :style="{backgroundColor:color}">
+    <div>
+    <h1>Background Color : {{ color }}</h1>
+    <button @click="colore()">CLICK ME</button>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
+  main{
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  button{
+    font-size: 20px;
+    margin: 20px 0px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
